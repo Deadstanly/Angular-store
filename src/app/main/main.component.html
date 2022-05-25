@@ -1,0 +1,3 @@
+<div class="products" *ngIf="products$ | async as products">
+  <app-product-card class="card" *ngFor="let product of $any(products) | sort:  productService.type" [product]="product"></app-product-card>
+</div>

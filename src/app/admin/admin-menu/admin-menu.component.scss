@@ -1,0 +1,43 @@
+.nav-bar-menu {
+  border-radius: 3px;
+  background-color: #222;
+  padding: 20px;
+  color: #fff;
+
+  .header {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-column-gap: 10px;
+
+    &__logo {
+      grid-column: span 1;
+    }
+
+    &__nav {
+      grid-column: span 3;
+      text-align: center;
+    }
+
+    &__nav-items {
+      list-style: none;
+      text-align: center;
+    }
+
+    &__nav-link{
+      margin: 0 20px;
+      color: #fff;
+    }
+
+    &__nav-link:hover,
+    &__nav-link:active,
+    &__nav-link:focus {
+      color: cornflowerblue;
+    }
+
+    &__nav-logout {
+      grid-column: span 1;
+      text-align: right;
+    }
+
+  }
+}

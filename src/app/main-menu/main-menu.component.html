@@ -1,0 +1,25 @@
+<div class="nav-bar-menu">
+ <div class="header">
+    <div class="header__logo">
+      <h3>Angular store</h3>
+    </div>
+   <div class="header__nav">
+     <ul class="header__nav-items">
+       <li>
+         <a class="header__nav-link" href="#" (click)="setType('Phone')">Phone</a>
+       </li>
+       <li>
+         <a class="header__nav-link" href="#" (click)="setType('Tablet')">Tablet</a>
+       </li>
+       <li>
+         <a class="header__nav-link" href="#" (click)="setType('Laptop')">Laptop</a>
+       </li>
+     </ul>
+   </div>
+   <div class="header__nav-cart">
+     <a class="header__nav-link" href="#" routerLink="/cart" (click)="setType('Cart')">Cart</a>
+     <a class="header__nav-link" href="#" routerLink="/admin">Admin</a>
+   </div>
+ </div>
+</div>
+<router-outlet></router-outlet>

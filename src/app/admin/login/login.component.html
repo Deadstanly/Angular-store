@@ -1,0 +1,19 @@
+<form class="form" [formGroup]="form" (ngSubmit)="submit()">
+  <h3 class="form__title">You are logged in as an administrator</h3>
+
+  <div class="form-control">
+    <label for="email">Email</label>
+    <input class="form-input" placeholder="Enter email" id="email" type="email" formControlName="email">
+    <div *ngIf="form.get('email').touched && form.get('email').invalid">
+      <small *ngIf="form.get('email').errors?.['required']">Please enter a valid email</small>
+    </div>
+  </div>
+  <div class="form-control">
+    <label for="password">Password</label>
+    <input class="form-input" placeholder="Enter password" id="password" type="password" formControlName="password">
+    <div *ngIf="form.get('password').touched && form.get('password').invalid">
+      <small *ngIf="form.get('password').errors['required']">Please enter a valid password</small>
+    </div>
+  </div>
+  <button class="btn" [disabled]="form.invalid">Submit</button>
+</form>

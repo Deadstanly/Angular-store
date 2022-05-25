@@ -1,0 +1,29 @@
+<div class="nav-bar-menu">
+  <div class="header">
+    <div class="header__logo">
+      <h3>Admin panel</h3>
+    </div>
+    <div class="header__nav">
+      <ul class="header__nav-items" *ngIf="authService.isAuth(); else login">
+        <li>
+          <a class="header__nav-link" href="#" [routerLink]="['/admin', 'dashboard']">Dashboard</a>
+        </li>
+        <li>
+          <a class="header__nav-link" href="#" [routerLink]="['/admin', 'add']">Add product</a>
+        </li>
+        <li>
+          <a class="header__nav-link" href="#" [routerLink]="['/admin', 'orders']">Orders</a>
+        </li>
+        <li>
+          <a class="header__nav-link" href="#" (click)="logout($event)" [routerLink]="['/']">Log out</a>
+        </li>
+      </ul>
+    </div>
+    <ng-template #login>
+      <div class="header__nav-logout">
+        <a class="header__nav-link" href="#" [routerLink]="['/']">Home</a>
+      </div>
+    </ng-template>
+  </div>
+</div>
+<router-outlet></router-outlet>

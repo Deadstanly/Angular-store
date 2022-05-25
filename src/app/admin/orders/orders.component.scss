@@ -1,0 +1,36 @@
+.title {
+  margin-top: 40px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+table {
+  width: 100%;
+  text-align: center;
+  border: 1px solid grey;
+  padding: 20px;
+}
+
+.order-btn {
+  width: 100px;
+  padding: 5px;
+  margin: 5px 0;
+  border: none;
+  border-radius: 5px;
+  background-color: #222;
+  color: #fff;
+  cursor: pointer;
+}
+
+.order-btn:hover,
+.order-btn:active,
+.order-btn:focus {
+  background-color: dodgerblue;
+  transition: 0.6s;
+}
+
+.form-control {
+  text-align: center;
+  margin-bottom: 20px;
+}
+

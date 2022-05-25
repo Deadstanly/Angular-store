@@ -1,0 +1,9 @@
+<div class="cards">
+  <div class="cards__item">
+    <h2 class="card__title">{{product.title}}</h2>
+    <quill-view-html class="card__photo" [content]="product.photo"></quill-view-html>
+    <h3 class="card__price">Price: {{product.price}} $</h3>
+    <button class="card__btn" [routerLink]="['/product', product.id]">Open info</button>
+    <button class="card__btn" (click)="addProduct(product)" routerLink="/cart">Add to cart</button>
+  </div>
+</div>

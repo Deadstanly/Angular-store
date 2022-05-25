@@ -1,0 +1,66 @@
+<div *ngIf="cartProducts.length > 0; else empty">
+  <h2 class="title">Your order: </h2>
+</div>
+
+<table>
+  <tbody>
+    <tr *ngFor="let product of cartProducts; let index = index">
+      <td>{{product.type}}</td>
+      <td>{{product.title}}</td>
+      <td>
+        <button class="btn-delete" (click)="delete(product)">Delete</button>
+      </td>
+      <td>{{+product.price}} $</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr>
+
+<b><p class="total">Total: {{total}} $</p></b>
+
+<div class="delivery" *ngIf="cartProducts.length > 0">
+  <h2 class="title">Delivery:</h2>
+  <div *ngIf="success">
+    <p class="success">{{success}}</p>
+  </div>
+  <form class="form" [formGroup]="form" (ngSubmit)="submit()">
+
+    <div class="form-control">
+      <label for="name">Name</label>
+      <input class="form-input" placeholder="..." id="name" type="text" formControlName="name">
+      <div *ngIf="form.get('name').touched && form.get('name').invalid">
+        <small *ngIf="form.get('name').errors?.['required']">Please enter a valid name</small>
+      </div>
+    </div>
+
+    <div class="form-control">
+      <label for="phone">Phone number</label>
+      <input class="form-input" placeholder="..." id="phone" type="text" formControlName="phone">
+      <div *ngIf="form.get('phone').touched && form.get('phone').invalid">
+        <small *ngIf="form.get('phone').errors?.['required']">Please enter a valid phone number</small>
+      </div>
+    </div>
+
+    <div class="form-control">
+      <label for="address">Address</label>
+      <input class="form-input" placeholder="..." id="address" type="text" formControlName="address">
+      <div *ngIf="form.get('address').touched && form.get('address').invalid">
+        <small *ngIf="form.get('address').errors?.['required']">Please enter a valid address</small>
+      </div>
+    </div>
+
+    <div class="form-control">
+      <label for="payment">Payment method:</label>
+      <select formControlName="payment" id="payment" class="form-input">
+        <option value="Cash">Cash</option>
+        <option value="Card">Card</option>
+      </select>
+    </div>
+    <button class="btn" [disabled]="form.invalid">Submit</button>
+  </form>
+</div>
+
+<ng-template #empty>
+  <h2 class="title">Your cart is empty</h2>
+</ng-template>

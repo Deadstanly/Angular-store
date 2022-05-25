@@ -1,0 +1,33 @@
+<div class="product" *ngIf="product$ | async as product; else loading">
+  <div class="product__info">
+    <div class="header">
+      <button routerLink="/cart" class="product-btn" (click)="addProduct(product)">Add to cart</button>
+      <button class="product-btn" routerLink="/">Back</button>
+    </div>
+    <div class="row">
+      <div class="block">
+        <div class="item-info">
+          <h2 class="title">{{product['title']}}</h2>
+        </div>
+        <div class="photo">
+          <quill-view-html [content]="product['photo']"></quill-view-html>
+        </div>
+        <div class="text-center">
+          <h2 class="title">Price: {{product['price']}} $</h2>
+        </div>
+      </div>
+      <div class="block">
+        <h2 class="title">Information: </h2>
+        <div>
+          <quill-view-html class="info" [content]="product['info']"></quill-view-html>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #loading>
+  <p><b>loading...</b></p>
+</ng-template>
+
+
